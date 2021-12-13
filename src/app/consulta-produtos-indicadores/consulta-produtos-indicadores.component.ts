@@ -111,12 +111,12 @@ export class ConsultaProdutosIndicadoresComponent implements OnInit {
    
   }
 
-  deletarProduto(id: number): Promise<void> {
+  deletarProduto(): Promise<void> {
 
-    console.log(id)
+    console.log(this.idDelete)
 
           let promise = new Promise<void>((resolve, reject) => {
-            this.productService.delete(id).subscribe(
+            this.productService.delete(this.idDelete).subscribe(
               result => {
                 
                 resolve();

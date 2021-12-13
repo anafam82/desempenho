@@ -5,14 +5,14 @@ import { ConsultaProdutosIndicadoresComponent } from './consulta-produtos-indica
 import { HomeComponent } from './home/home.component';
 import { PactuacaoComponent } from './pactuacao/pactuacao.component';
 import { ProdutosUpdateComponent } from './produtos-update/produtos-update.component';
-import { ProdutosIndicadoresComponent } from './produtosIndicadores/produtosIndicadores.component';
+//import { ProdutosIndicadoresComponent } from './produtosIndicadores/produtosIndicadores.component';  tirei o componente Produtos indicadores e coloquei como modal dentro de consultaProdutos
 import { TutorialComponent } from './tutorial/tutorial.component';
 
 
 // configurando uma rota (endereço) para acessar cada componente
 const routes: Routes = [
   {path: '', component: HomeComponent}, //coloco VAZIO pq mostra que é pra carregar qdo o site abrir
-  {path: 'cadastro-produtos-indicadores', component : ProdutosIndicadoresComponent },
+ // {path: 'cadastro-produtos-indicadores', component : ProdutosIndicadoresComponent },
   {path: 'pactuacao', component : PactuacaoComponent},
   {path: 'avaliacao', component : AvaliacaoComponent },
   {path: 'tutorial', component: TutorialComponent},

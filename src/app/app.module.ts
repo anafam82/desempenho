@@ -16,7 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
-import { ProdutosIndicadoresComponent } from './produtosIndicadores/produtosIndicadores.component';
+//import { ProdutosIndicadoresComponent } from './produtosIndicadores/produtosIndicadores.component';
 import { PactuacaoComponent } from './pactuacao/pactuacao.component';
 import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 
@@ -49,7 +49,7 @@ import { ProdutosUpdateComponent } from './produtos-update/produtos-update.compo
     AppComponent,
       HeaderComponent,
       FooterComponent,
-      ProdutosIndicadoresComponent,
+     // ProdutosIndicadoresComponent,
       PactuacaoComponent,
       AvaliacaoComponent,
       HomeComponent,

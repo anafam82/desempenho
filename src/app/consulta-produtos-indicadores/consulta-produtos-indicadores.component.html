@@ -1,3 +1,4 @@
+
 <div class="card">
 
   <div class="card-body">
@@ -41,7 +42,7 @@
 
              
               &nbsp;
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal"  (click)="deletarProduto(item.id)" > 
+              <button class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#janela-delete" (click)="pegarId(item.id)" > 
                 Excluir
               </button>
 
@@ -69,6 +70,7 @@
 
 
 <!--janela modal para edição-->
+
 
 <div id="janela-edicao" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
@@ -220,9 +222,11 @@
 
 
 
+<!-- janela deletar-->
 
+<div id="janela-delete" class="modal fade" tabindex="-1"> 
 
-  <!-- <div class="modal-dialog modal-dialog-centered">
+ <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title">Excluir produtos</h3>
@@ -235,7 +239,7 @@
 
         <div class="row mt-3">
           <div class="col-md-12">
-              <button type="submit"  data-bs-dismiss="modal" class="btn btn-danger" >
+              <button type="submit"  data-bs-dismiss="modal" class="btn btn-danger" (click)="deletarProduto()" >
                   Confirmar exclusão
               </button>
               &nbsp;
@@ -248,7 +252,8 @@
       
     </div>
   </div>
-</div> -->
+</div> 
+</div>
 
  
 
