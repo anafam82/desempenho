@@ -1,0 +1,92 @@
+
+
+
+
+<div class="card">
+
+  <div class="card-body">
+      <h3 class="card-title">Cadastro inicial de produtos e indicadores</h3>
+      <h4 class="card-subtitle mb-2 text-muted">Preencha o formulário para cadastrar produtos</h4>
+      <hr>
+
+      <form class="form-group">
+
+          <div class="row">
+            <div class="col-md-auto">
+              <label>Órgão:</label>
+              <input type="text" class="form-control" placeholder="Ex: CDS" [(ngModel)]="product.orgao" name="orgao">
+
+              
+          </div>
+            <div class="col-md-auto">
+                  <label>Macroprocesso:</label>
+                  <input type="text" class="form-control" placeholder="Ex: João da Silva" [(ngModel)]="product.macroprocesso" name="macroprocesso">
+
+                  
+              </div>
+              <div class="col">
+                  <label>Processo:</label>
+                  <input type="text" class="form-control" placeholder="Ex: nome@gmail.com" [(ngModel)]="product.processo" name="processo">
+              </div>
+              
+            <div class="col">
+              <label>Produto para pactuação:</label>
+              <input type="text" class="form-control" placeholder="Ex: Processos instruídos" [(ngModel)]="product.produtoPactuacao" name="produtoPactuacao">
+            </div>
+            <div class="col">
+              <label>Indicador:</label>
+              <input type="text" class="form-control" placeholder="Ex: Percentual de processos instruídos" [(ngModel)]="product.indicador" name="indicador">
+            </div>
+            <div class="col">
+              <label>Fórmula:</label>
+              <input type="text" class="form-control" placeholder="Ex: qt processos assinados/qt proc recebidos" [(ngModel)]="product.formula" name="formula">
+            </div>
+            <div class="col">
+              <label>Modalidade:</label>
+
+              <select class="form-control"  aria-label="Default select example" [(ngModel)]="product.modalidade" name="modalidade" > <!--COMO FAZER O SELECT SER RECEBIDO PELO ANGULAR-->
+               
+                <option value="percentual">Percentual</option> <!--colocar em valor o dado que quero que passe para o banco-->
+                <option value="unidade">Unidade</option>
+                <option value="projeto">Projeto</option>
+              </select>
+             
+              
+            </div>
+            <div class="col">
+              <label>Fonte:</label>
+              <input type="text" class="form-control" placeholder="Ex: scap/relatorios" [(ngModel)]="product.fonte" name="fonte">
+            </div>
+          </div>
+
+
+      </form>
+      
+      <div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+           <!--  <button mat-raised-button (click)="createProduct()" color="primary" type="submit">
+              Realizar Cadastro
+            </button> -->
+             <button type="submit" class="btn btn-success" (click)="createProduct()">
+                  Realizar cadastro
+              </button> 
+              &nbsp;
+              <!--<button mat-raised-button (click)="cancel()">
+                Cancelar
+              </button> -->
+              <button type="button" class="btn btn-outline-secondary" (click)="cancel()">
+                  Cancelar
+              </button> 
+
+          </div>
+
+      </div>
+      </div>
+  </div>
+
+
+</div>
+
+
+

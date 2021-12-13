@@ -1,0 +1,18 @@
+.home .title{
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+    
+    padding-bottom: 5px;
+}
+.home .subtitle{
+    font-size: 1.1em;
+}
+#dicas{
+    font-size: 20px;
+    text-align: left;
+    padding-top: 30px;
+}
+li{
+    padding-bottom: 15px;
+}

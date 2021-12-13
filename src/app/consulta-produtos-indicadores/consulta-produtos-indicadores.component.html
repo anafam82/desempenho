@@ -1,0 +1,259 @@
+<div class="card">
+
+  <div class="card-body">
+      <h3 class="card-title">Lista de produtos e indicadores cadastrados</h3>
+      <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#janela-cadastro"> 
+        Cadastrar
+      </button>
+      
+      <hr>
+
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Órgão</th>
+            <th>Macroprocesso</th>
+            <th>Processo</th>
+            <th>Produto para pactuação</th>
+            <th>Indicador</th>
+            <th>Fórmula de cálculo</th>
+            <th>Modalidade do indicador</th>
+            <th>Fonte</th>
+            <th>Operações</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products"> <!--repete a linha para cliente que vier da API. Item é o nome que dou para CADA produto-->
+            <td>{{item.orgao}}</td> <!--puxa um valor de cada coluna do array de produtos-->  
+            <td>{{item.macroprocesso}}</td>
+            <td>{{item.processo}}</td>
+            <td>{{item.produtoPactuacao}}</td>
+            <td>{{item.indicador}}</td>
+            <td>{{item.formula}}</td>
+            <td>{{item.modalidade}}</td>
+            <td>{{item.fonte}}</td>
+            <td> 
+              
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#janela-edicao" (click)="alterarProdutos(item.id)">
+                  Alterar
+                </button>
+
+             
+              &nbsp;
+              <button class="btn btn-danger btn-sm" data-bs-toggle="modal"  (click)="deletarProduto(item.id)" > 
+                Excluir
+              </button>
+
+            </td>
+          </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="8">
+              Quantidade de registros: {{products.length}}
+
+            </td>
+          </tr>
+
+        </tfoot>
+
+      </table>     
+      
+  </div>
+
+
+</div>
+
+
+
+<!--janela modal para edição-->
+
+<div id="janela-edicao" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Alterar dados dos produtos e indicadores</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form>
+          <label >Órgão</label>
+          <input type="text" class="form-control" [(ngModel)]="product.orgao" name="orgao"/> 
+        </form> 
+        <form>
+          <label >Macroprocesso</label>
+          <input type="text" class="form-control" [(ngModel)]="product.macroprocesso" name="macroprocesso"/> 
+        </form> 
+        <form>
+          <label>Processo</label>
+          <input type="text" class="form-control" [(ngModel)]="product.processo" name="processo"/>
+        </form>
+        <form>
+          <label>Produto para pactuação</label>
+          <input type="text" class="form-control" [(ngModel)]="product.produtoPactuacao" name="produtoPactuacao"/>
+        </form>
+        <form>
+          <label>Indicador</label>
+          <input type="text" class="form-control" [(ngModel)]="product.indicador" name="indicador"/>
+        </form>
+        <form>
+          <label>Fórmula de cálculo</label>
+          <input type="text" class="form-control" [(ngModel)]="product.formula" name="formula"/>
+        </form>
+        <form>
+          <label>Modalidade do indicador</label>
+          
+        
+        <select class="form-control"  name="modalidade" aria-label="Default select example" [(ngModel)]="product.modalidade"> 
+               
+          <option value="percentual">Percentual</option> <!--colocar em valor o dado que quero que passe para o banco-->
+          <option value="unidade">Unidade</option>
+          <option value="projeto">Projeto</option>
+        </select>
+      </form>
+        <form>
+          <label>Fonte</label>
+          <input type="text" class="form-control"/>
+
+          <div class="row mt-3">
+            <div class="col-md-12">
+                 
+                  <button type="submit" data-bs-dismiss="modal" class="btn btn-primary" (click)="updateProduct()" > <!--data dismiss para fechar a modal-->
+                    Salvar alterações
+                  </button>
+              
+                &nbsp;
+                <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+        </form>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!--janela modal para cadastrar-->
+
+<div id="janela-cadastro" class="modal fade" tabindex="-1">
+
+
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Cadastrar produtos e indicadores</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form>
+          <label >Órgão</label>
+          <input type="text" class="form-control" [(ngModel)]="product.orgao" name="orgao"/> 
+        </form> 
+        <form>
+          <label >Macroprocesso</label>
+          <input type="text" class="form-control" [(ngModel)]="product.macroprocesso" name="macroprocesso"/> 
+        </form> 
+        <form>
+          <label>Processo</label>
+          <input type="text" class="form-control" [(ngModel)]="product.processo" name="processo"/>
+        </form>
+        <form>
+          <label>Produto para pactuação</label>
+          <input type="text" class="form-control" [(ngModel)]="product.produtoPactuacao" name="produtoPactuacao"/>
+        </form>
+        <form>
+          <label>Indicador</label>
+          <input type="text" class="form-control" [(ngModel)]="product.indicador" name="indicador"/>
+        </form>
+        <form>
+          <label>Fórmula de cálculo</label>
+          <input type="text" class="form-control" [(ngModel)]="product.formula" name="formula"/>
+        </form>
+        <form>
+          <label>Modalidade do indicador</label>
+          
+        
+        <select class="form-control"  name="modalidade" aria-label="Default select example" [(ngModel)]="product.modalidade"> 
+               
+          <option value="percentual">Percentual</option> <!--colocar em valor o dado que quero que passe para o banco-->
+          <option value="unidade">Unidade</option>
+          <option value="projeto">Projeto</option>
+        </select>
+      </form>
+        <form>
+          <label>Fonte</label>
+          <input type="text" class="form-control"/>
+
+          <div class="row mt-3">
+            <div class="col-md-12">
+                 
+                  <button type="submit" data-bs-dismiss="modal" class="btn btn-primary" (click)="createProduct()" > <!--data dismiss para fechar a modal-->
+                    Salvar cadastro
+                  </button>
+              
+                &nbsp;
+                <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+        </form>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Excluir produtos</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        
+        <p>Deseja realmente excluir o produto selecionado?</p>
+        <br/>
+
+        <div class="row mt-3">
+          <div class="col-md-12">
+              <button type="submit"  data-bs-dismiss="modal" class="btn btn-danger" >
+                  Confirmar exclusão
+              </button>
+              &nbsp;
+              <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary" >
+                  Cancelar
+              </button>
+
+          </div>
+      </div>
+      
+    </div>
+  </div>
+</div> -->
+
+ 
+
+
+
+
+
+
